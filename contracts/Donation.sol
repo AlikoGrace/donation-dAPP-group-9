@@ -57,8 +57,12 @@ contract Donation{
     }
 
    // a function to enable you withdraw donated funds
-    function viewTotalDonations() public{
-
+    function viewTotalDonations() external view returns (uint256){
+        uint256 total = 0;
+        for (uint256 i = 0; i < donations.length; i++) {
+            total += donations[i].amount;
+        }
+        return total;
     }
 
     function viewDonerList() public{
